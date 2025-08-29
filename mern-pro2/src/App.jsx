@@ -9,9 +9,9 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 
 // Admin Pages
-import AdminLogin from "./pages/Admin/AdminLogin";
-import AdminLayout from "./pages/Admin/AdminLayout";
-import AdminDashboard from "./pages/Admin/AdminDashboard";
+import AdminLogin from "./pages/Admin/Dashboard/AdminLogin";
+import AdminLayout from "./pages/Admin/Dashboard/AdminLayout";
+import AdminDashboard from "./pages/Admin/Dashboard/AdminDashboard";
 import EditProduct from "./pages/Admin/EditProduct";
 import PrivateRoute from "./pages/Admin/PrivateRoute";
 
