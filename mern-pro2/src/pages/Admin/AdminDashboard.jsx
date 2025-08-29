@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   FiBox,
   FiShoppingCart,
@@ -30,29 +29,10 @@ function AdminDashboard() {
   return (
     <div className="p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 min-h-screen">
       {/* Page Header */}
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
-        <div>
-          <h1 className="text-4xl font-extrabold text-gray-800 tracking-wide">
-            Admin Dashboard
-          </h1>
-          <p className="text-gray-600 mt-1 text-lg">
-            Welcome back, Admin 👋. Here's what's happening today.
-          </p>
-        </div>
-        <div className="flex gap-4 mt-4 md:mt-0">
-          <Link
-            to="/admin/add-product"
-            className="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-lg shadow-lg font-semibold transition-transform transform hover:scale-105"
-          >
-            ➕ Add Product
-          </Link>
-          <Link
-            to="/admin/manage-products"
-            className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-5 py-3 rounded-lg shadow-lg font-semibold transition-transform transform hover:scale-105"
-          >
-            📝 Manage Products
-          </Link>
-        </div>
+      <div className="mb-8">
+        <h1 className="text-4xl font-extrabold text-gray-800 tracking-wide">
+          Admin Dashboard
+        </h1>
       </div>
 
       {/* Stats Cards */}
