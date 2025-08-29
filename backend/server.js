@@ -10,14 +10,14 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5174", // Vite frontend URL
+    origin: process.env.FRONTEND_ORIGIN || "http://localhost:5173",
     credentials: true,
   })
 );
 
 // MongoDB Connection
 mongoose
-  .connect(process.env.MONGO_URI, {
+  .connect(process.env.MONGO_URI || "mongodb://127.0.0.1:27017/handloom", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })

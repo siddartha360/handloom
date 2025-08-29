@@ -70,7 +70,7 @@ export default function Search() {
     // relevance = default (no change)
 
     return list;
-  }, [q, cat, brand, sort]);
+  }, [q, cat, brand, sort, deal, tag]);
 
   // Update URL with new query parameters
   const updateParam = (key, value) => {

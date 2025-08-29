@@ -10,7 +10,7 @@ export default function Header() {
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0); // ✅ Total quantity
   const navigate = useNavigate();
   const [q, setQ] = useState(""); // search keyword
-  const [cat, setCat] = useState("all"); // selected category
+  const [cat] = useState("all"); // selected category
   const [user, setUser] = useState(null); // ✅ To store logged-in user info
 
   // ✅ Load logged-in user on page load
