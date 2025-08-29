@@ -15,7 +15,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-// Dummy data for chart
+// Dummy chart data
 const salesData = [
   { month: "Jan", revenue: 5000 },
   { month: "Feb", revenue: 7000 },
@@ -28,58 +28,48 @@ const salesData = [
 function AdminDashboard() {
   return (
     <div className="p-6 bg-gradient-to-br from-indigo-50 via-purple-50 to-pink-50 min-h-screen">
-      {/* Page Header */}
-      <div className="mb-8">
-        <h1 className="text-4xl font-extrabold text-gray-800 tracking-wide">
+      {/* Header */}
+      <div className="mb-10 border-b pb-4">
+        <h1 className="text-4xl font-bold text-gray-800 tracking-tight">
           Admin Dashboard
         </h1>
+        <p className="text-gray-500 mt-2">Overview of your store performance</p>
       </div>
 
-      {/* Stats Cards */}
+      {/* Stats Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-        {/* Total Products */}
-        <div className="bg-white hover:shadow-xl transition rounded-2xl p-6 flex items-center justify-between border border-gray-100 shadow-md">
-          <div>
-            <h3 className="text-sm text-gray-500">Total Products</h3>
-            <p className="text-4xl font-bold text-indigo-600">120</p>
-          </div>
-          <FiBox className="text-5xl text-indigo-500" />
-        </div>
-
-        {/* Total Orders */}
-        <div className="bg-white hover:shadow-xl transition rounded-2xl p-6 flex items-center justify-between border border-gray-100 shadow-md">
-          <div>
-            <h3 className="text-sm text-gray-500">Total Orders</h3>
-            <p className="text-4xl font-bold text-green-600">350</p>
-          </div>
-          <FiShoppingCart className="text-5xl text-green-500" />
-        </div>
-
-        {/* Total Users */}
-        <div className="bg-white hover:shadow-xl transition rounded-2xl p-6 flex items-center justify-between border border-gray-100 shadow-md">
-          <div>
-            <h3 className="text-sm text-gray-500">Total Users</h3>
-            <p className="text-4xl font-bold text-purple-600">85</p>
-          </div>
-          <FiUsers className="text-5xl text-purple-500" />
-        </div>
-
-        {/* Revenue */}
-        <div className="bg-white hover:shadow-xl transition rounded-2xl p-6 flex items-center justify-between border border-gray-100 shadow-md">
-          <div>
-            <h3 className="text-sm text-gray-500">Revenue</h3>
-            <p className="text-4xl font-bold text-yellow-600">₹2.5L</p>
-          </div>
-          <FiDollarSign className="text-5xl text-yellow-500" />
-        </div>
+        <StatCard
+          title="Total Products"
+          value="120"
+          icon={<FiBox />}
+          color="indigo"
+        />
+        <StatCard
+          title="Total Orders"
+          value="350"
+          icon={<FiShoppingCart />}
+          color="green"
+        />
+        <StatCard
+          title="Total Users"
+          value="85"
+          icon={<FiUsers />}
+          color="purple"
+        />
+        <StatCard
+          title="Revenue"
+          value="₹2.5L"
+          icon={<FiDollarSign />}
+          color="yellow"
+        />
       </div>
 
-      {/* Sales Chart + Recent Orders */}
+      {/* Chart + Recent Orders */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Sales Chart */}
-        <div className="lg:col-span-2 bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            Monthly Revenue
+        <div className="lg:col-span-2 bg-white rounded-3xl p-6 border shadow-md hover:shadow-xl transition-all duration-300">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+            📈 Monthly Revenue
           </h2>
           <ResponsiveContainer width="100%" height={320}>
             <LineChart data={salesData}>
@@ -99,11 +89,11 @@ function AdminDashboard() {
         </div>
 
         {/* Recent Orders */}
-        <div className="bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-4">
-            Recent Orders
+        <div className="bg-white rounded-3xl p-6 border shadow-md hover:shadow-xl transition-all duration-300">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-6">
+            🧾 Recent Orders
           </h2>
-          <table className="w-full border-collapse text-sm">
+          <table className="w-full text-sm border-collapse">
             <thead>
               <tr className="bg-indigo-50 text-gray-700">
                 <th className="p-3 text-left">Order ID</th>
@@ -113,41 +103,53 @@ function AdminDashboard() {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b hover:bg-indigo-50 transition">
-                <td className="p-3">#1234</td>
-                <td className="p-3">Rahul</td>
-                <td className="p-3">
-                  <span className="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs">
-                    Pending
-                  </span>
-                </td>
-                <td className="p-3 font-semibold">₹1200</td>
-              </tr>
-              <tr className="border-b hover:bg-indigo-50 transition">
-                <td className="p-3">#1235</td>
-                <td className="p-3">Priya</td>
-                <td className="p-3">
-                  <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs">
-                    Shipped
-                  </span>
-                </td>
-                <td className="p-3 font-semibold">₹2500</td>
-              </tr>
-              <tr className="hover:bg-indigo-50 transition">
-                <td className="p-3">#1236</td>
-                <td className="p-3">Amit</td>
-                <td className="p-3">
-                  <span className="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs">
-                    Delivered
-                  </span>
-                </td>
-                <td className="p-3 font-semibold">₹700</td>
-              </tr>
+              <OrderRow id="#1234" customer="Rahul" status="Pending" color="yellow" amount="₹1200" />
+              <OrderRow id="#1235" customer="Priya" status="Shipped" color="blue" amount="₹2500" />
+              <OrderRow id="#1236" customer="Amit" status="Delivered" color="green" amount="₹700" />
             </tbody>
           </table>
         </div>
       </div>
     </div>
+  );
+}
+
+// 🔹 Reusable Stat Card
+function StatCard({ title, value, icon, color }) {
+  return (
+    <div
+      className={`bg-white p-6 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg transition-all flex items-center justify-between`}
+    >
+      <div>
+        <h4 className="text-sm text-gray-500">{title}</h4>
+        <p
+          className={`text-4xl font-extrabold text-${color}-600 tracking-tight`}
+        >
+          {value}
+        </p>
+      </div>
+      <div className={`text-5xl text-${color}-500 drop-shadow-md`}>
+        {icon}
+      </div>
+    </div>
+  );
+}
+
+// 🔹 Reusable Order Row
+function OrderRow({ id, customer, status, color, amount }) {
+  return (
+    <tr className="border-b hover:bg-indigo-50 transition">
+      <td className="p-3">{id}</td>
+      <td className="p-3">{customer}</td>
+      <td className="p-3">
+        <span
+          className={`bg-${color}-100 text-${color}-800 px-3 py-1 rounded-full text-xs font-medium`}
+        >
+          {status}
+        </span>
+      </td>
+      <td className="p-3 font-semibold">{amount}</td>
+    </tr>
   );
 }
 
