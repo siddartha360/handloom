@@ -12,8 +12,6 @@ import Login from "./pages/Login";
 import AdminLogin from "./pages/Admin/AdminLogin";
 import AdminLayout from "./pages/Admin/AdminLayout";
 import AdminDashboard from "./pages/Admin/AdminDashboard";
-import AddProduct from "./pages/Admin/AddProduct";
-import ManageProducts from "./pages/Admin/ManageProducts";
 import EditProduct from "./pages/Admin/EditProduct";
 import PrivateRoute from "./pages/Admin/PrivateRoute";
 
@@ -59,8 +57,6 @@ export default function App() {
             }
           >
             <Route path="dashboard" element={<AdminDashboard />} />
-            <Route path="add-product" element={<AddProduct />} />
-            <Route path="manage-products" element={<ManageProducts />} />
             <Route path="edit-product/:id" element={<EditProduct />} />
 
             {/* Future Pages */}
